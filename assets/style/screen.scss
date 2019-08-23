@@ -1,0 +1,286 @@
+@import 'reset';
+@import 'colors';
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+body{
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 62,5%;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  background: $bg-color;
+  color: $txt-color;
+}
+
+h1,
+h2{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-variant: small-caps;
+}
+
+h1{
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2{
+  font-size: 1.8rem;
+  margin: 1rem 0 .8rem;
+}
+
+p{
+  margin: .8rem 0;
+}
+
+hr{
+  position: relative;
+  width: 7%;
+  margin: auto 0;
+  border: 3px solid ;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.h-100{
+  height: 100%;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+.span2{
+  grid-column: span 2;
+  margin-right: 4rem;
+}
+
+.btn--date{
+  background: $pink;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding-top: 2.5rem;
+  font-size: .8rem;
+  position: absolute;
+  left: 40px;
+  margin-top: -30px;
+  line-height: 1.2;
+  color: #fff;
+  transform: rotate(25deg);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr;
+  position: relative;
+  padding-top: 3rem;
+
+  .grid__col--1{
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    margin: 0 4rem;
+    
+
+    .lang{
+      position: absolute;
+      bottom: 3rem;
+      display: flex;
+      flex-flow: row;
+      width: 100%;
+      margin-bottom: 1rem;
+      justify-content: space-between;
+      font-size: .8rem;
+
+      &__option{
+        text-align: center;
+
+        a{
+          padding: .5rem .8rem;
+        }
+
+        &--active{
+          border: 1px solid black;
+          font-weight: 700;
+        }
+
+        &:hover{
+          font-weight: 700;
+          color: $hover;
+        }
+      }
+    }
+  }
+
+  .grid__col--2{
+    margin-bottom: 4rem;
+  }
+
+  .grid__col--3{
+    margin-top: -4rem;
+    margin-left: 2rem;
+  }
+}
+
+.navigation{
+  // Fix nav to bottom while scrolling
+  // Always keep it in front
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  
+  .nav-list{
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end; // align bottom
+
+    &__item a{
+      padding: .8rem 2rem;
+      border: 1px solid #000;
+      background: $bg-color;
+
+      &:hover{
+        background: $hover;
+        color: #fff;
+      }
+    }
+
+    &__item--active{
+      border-bottom: 3px solid #000;
+    }
+  }
+}
+
+.tours{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  &__items{
+    position: relative;
+    width: 49%;
+    background: #fff;
+    margin-top: 1rem;
+    padding: 50px 1rem 3rem 1rem;
+  }
+
+  // Make template box for img-background on tour boxes
+  [class*='tours-item--']::before,
+  [class*='tours-item--']::after{
+    content: ' ';
+    position: absolute;
+    width: 60%;
+    height: 70px;
+  }
+
+  // Add aubergine background on the first box
+  // Add on top & bottom
+  .tours-item--1::before{ 
+    top: 0;
+    left: 0;
+    background: url('../img/aubergine-top.jpg') bottom right no-repeat; 
+    background-size: 100%;
+  }
+
+  .tours-item--1::after{
+    bottom: 0;
+    right: 0;
+    background: url('../img/aubergine-bottom.jpg') bottom right no-repeat;
+    background-size: 100%;
+  }
+
+  // Add watermelon background on the second box
+  // Add on top & bottom
+  .tours-item--2::before{ 
+    top: 0;
+    left: 0;
+    background: url('../img/watermelon-top.jpg') bottom right no-repeat; 
+    background-size: 100%;
+  }
+
+  .tours-item--2::after{
+    bottom: 0;
+    right: 0;
+    background: url('../img/watermelon-bottom.jpg') bottom right no-repeat;
+    background-size: 100%;
+  }
+
+  // Add lemon background on the third box
+  // Add on top & bottom
+  .tours-item--3::before{ 
+    top: 0;
+    left: 0;
+    background: url('../img/lemon-top.jpg') bottom right no-repeat; 
+    background-size: 100%;
+  }
+
+  .tours-item--3::after{
+    bottom: 0;
+    right: 0;
+    background: url('../img/lemon-bottom.jpg') bottom right no-repeat;
+    background-size: 100%;
+  }
+
+  .tours__action{
+    margin-top: 1rem;
+
+    a{
+      display: inline-block;
+    } 
+
+    .action__btn{
+      border: 1px solid #000;
+      padding: .5rem;
+      transition: box-shadow .2s;
+
+      &:hover{
+        box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+      }
+    }
+
+    .action--info{
+      margin-left: 1.5rem;
+      color: $color2;
+      font-size: .8rem;
+
+      &:hover{
+        color: #000;
+      }
+    }
+  }
+}
+
+small{
+  color: $color2;
+  font-size: .8rem;
+
+  a{
+    display: inline;
+  }
+}
+
+
+
+.cover{
+  background: url('../img/about-cover-img.jpg') center center/cover;
+}
+
+img#img-anne{
+  float: right;
+  margin: 0 1rem 1rem;
+  max-width: 150px;
+}
